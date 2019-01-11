@@ -23,7 +23,7 @@ class World
   def fill_grid(random)
     size.times do |row|
       size.times do |column|
-        grid[row][column] = Cell.new(random ? rand <= 0.1 : false, column, row)
+        grid[row][column] = Cell.new(random ? rand <= 0.1 : false)
       end
     end
   end
@@ -52,6 +52,12 @@ class World
   end
 
   def tick
+    @grid.each do |row|
+      row.each do |cell|
+        cell.alive = false if cell.neighbours > 3 or cell.neighbours < 2
+        cell.alive = true if cell.neighbours == 3
+      end
+    end
     assign_neighbours
   end
 
