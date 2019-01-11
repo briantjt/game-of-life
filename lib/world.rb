@@ -31,7 +31,7 @@ class World
     NEIGHBOUR_UNITS.each do |coords|
       abs_row = row + coords[:row]
       abs_col = column + coords[:column]
-      if abs_row >= 0 and abs_col >= 0 and abs_row < @size and abs_col < @size
+      if (abs_row >= 0) && (abs_col >= 0) && (abs_row < @size) && (abs_col < @size)
         cell = @grid[abs_row][abs_col]
         count += 1 if cell.alive
       end
@@ -50,10 +50,7 @@ class World
 
   def tick
     @grid.each do |row|
-      row.each do |cell|
-        cell.alive = false if (cell.neighbours > 3) || (cell.neighbours < 2)
-        cell.alive = true if cell.neighbours == 3
-      end
+      row.each(&:evolve)
     end
     assign_neighbours
   end

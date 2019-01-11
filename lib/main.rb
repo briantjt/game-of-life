@@ -2,6 +2,8 @@ require_relative 'world'
 
 def game
   world = World.new(40)
+  world.fill_grid
+  world.assign_neighbours
   generation = 1
   system 'clear'
   print "\033[s"

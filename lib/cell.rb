@@ -6,6 +6,11 @@ class Cell
     @neighbours = 0
   end
 
+  def evolve
+    @alive = false if (@neighbours > 3) || (@neighbours < 2)
+    @alive = true if @neighbours == 3
+  end
+
   def to_s
     @alive ? '0' : '.'
   end
