@@ -5,3 +5,4 @@ gem 'guard-rspec', require: false
 gem 'ruby-debug-ide'
 gem 'debase'
 gem 'rubocop'
+gem 'solargraph'

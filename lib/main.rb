@@ -1,11 +1,11 @@
-require_relative "world"
+require_relative 'world'
 
 def game
   world = World.new(40)
   generation = 1
-  system "clear"
+  system 'clear'
   print "\033[s"
-  while true
+  loop do
     print "\033[u"
     puts "Generation: #{generation}"
     print world

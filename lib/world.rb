@@ -1,5 +1,13 @@
 require_relative 'cell'
 
+NEIGHBOUR_UNITS = [{ column: -1, row: -1 },
+                   { column: 0, row: -1 },
+                   { column: 1, row: -1 },
+                   { column: -1, row: 0 },
+                   { column: 1, row: 0 },
+                   { column: -1, row: 1 },
+                   { column: 0, row: 1 },
+                   { column: 1, row: 1 }].freeze
 # World that controls behaviour of cells
 class World
   attr_reader :size
@@ -8,19 +16,9 @@ class World
   def initialize(size, random: true)
     @grid = Array.new(size) { Array.new(size) }
     @size = size
-    @neighbour_units = [{ column: -1, row: -1 },
-                        { column: 0, row: -1 },
-                        { column: 1, row: -1 },
-                        { column: -1, row: 0 },
-                        { column: 1, row: 0 },
-                        { column: -1, row: 1 },
-                        { column: 0, row: 1 },
-                        { column: 1, row: 1 }]
-    fill_grid random
-    assign_neighbours
   end
 
-  def fill_grid(random)
+  def fill_grid(random: true)
     size.times do |row|
       size.times do |column|
         grid[row][column] = Cell.new(random ? rand <= 0.1 : false)
@@ -30,14 +28,16 @@ class World
 
   def count_neighbours(row, column)
     count = 0
-    @neighbour_units.each do |coords|
-      rel_row = row + coords[:row]
-      rel_col = column + coords[:column]
-      if rel_row >= 0 && rel_col >= 0
-        cell = @grid[rel_row][rel_col]
-        count +=1 if cell.alive
+    NEIGHBOUR_UNITS.each do |coords|
+      begin
+        rel_row = row + coords[:row]
+        rel_col = column + coords[:column]
+        if rel_row >= 0 && rel_col >= 0
+          cell = @grid[rel_row][rel_col]
+          count += 1 if cell.alive
+        end
+      rescue NoMethodError
       end
-    rescue
     end
     count
   end
@@ -54,7 +54,7 @@ class World
   def tick
     @grid.each do |row|
       row.each do |cell|
-        cell.alive = false if cell.neighbours > 3 or cell.neighbours < 2
+        cell.alive = false if (cell.neighbours > 3) || (cell.neighbours < 2)
         cell.alive = true if cell.neighbours == 3
       end
     end
@@ -62,9 +62,9 @@ class World
   end
 
   def to_s
-    string = ""
+    string = ''
     @grid.each do |row|
-      string += row.join(" ") + "\n"
+      string += row.join(' ') + "\n"
     end
     string
   end
