@@ -2,21 +2,57 @@ require 'cell'
 
 # World that controls behaviour of cells
 class World
-  attr_reader :grid, :size
+  attr_reader :size
+  attr_accessor :grid
 
-  def initialize(size)
+  def initialize(size, random: true)
     @grid = Array.new(size) { Array.new(size) }
     @size = size
-    fill_grid
+    @neighbour_units = [{ column: -1, row: -1 },
+                        { column: 0, row: -1 },
+                        { column: 1, row: -1 },
+                        { column: -1, row: 0 },
+                        { column: 1, row: 0 },
+                        { column: -1, row: 1 },
+                        { column: 0, row: 1 },
+                        { column: 1, row: 1 }]
+    fill_grid random
+    assign_neighbours
   end
 
-  def fill_grid
-    size.times do |y|
-      size.times do |x|
-        @grid[x][y] = Cell.new(rand <= 0.1, x, y)
+  def fill_grid(random)
+    size.times do |row|
+      size.times do |column|
+        grid[row][column] = Cell.new(random ? rand <= 0.1 : false, column, row)
       end
     end
   end
 
-  
+  def count_neighbours(row, column)
+    count = 0
+    @neighbour_units.each do |coords|
+      rel_row = row + coords[:row]
+      rel_col = column + coords[:column]
+      if rel_row >= 0 && rel_col >= 0
+        cell = @grid[rel_row][rel_col]
+        count +=1 if cell.alive
+      end
+    rescue
+    end
+    count
+  end
+
+  def assign_neighbours
+    size.times do |row|
+      size.times do |column|
+        count = count_neighbours(row, column)
+        @grid[row][column].neighbours = count
+      end
+    end
+  end
+
+  def tick
+    assign_neighbours
+  end
+
 end
