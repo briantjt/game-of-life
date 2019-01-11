@@ -1,4 +1,4 @@
-require 'cell'
+require_relative 'cell'
 
 # World that controls behaviour of cells
 class World
@@ -61,4 +61,11 @@ class World
     assign_neighbours
   end
 
+  def to_s
+    string = ""
+    @grid.each do |row|
+      string += row.join(" ") + "\n"
+    end
+    string
+  end
 end
