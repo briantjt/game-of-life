@@ -13,7 +13,7 @@ class World
   attr_reader :size
   attr_accessor :grid
 
-  def initialize(size, random: true)
+  def initialize(size)
     @grid = Array.new(size) { Array.new(size) }
     @size = size
   end
@@ -29,14 +29,11 @@ class World
   def count_neighbours(row, column)
     count = 0
     NEIGHBOUR_UNITS.each do |coords|
-      begin
-        rel_row = row + coords[:row]
-        rel_col = column + coords[:column]
-        if rel_row >= 0 && rel_col >= 0
-          cell = @grid[rel_row][rel_col]
-          count += 1 if cell.alive
-        end
-      rescue NoMethodError
+      abs_row = row + coords[:row]
+      abs_col = column + coords[:column]
+      if abs_row >= 0 and abs_col >= 0 and abs_row < @size and abs_col < @size
+        cell = @grid[abs_row][abs_col]
+        count += 1 if cell.alive
       end
     end
     count

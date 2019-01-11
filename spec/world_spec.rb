@@ -20,7 +20,7 @@ RSpec.describe 'World class' do
       end
     end
     it 'Assigns the correct number of neighbours to each cell' do
-      world1 = World.new(2, random: false)
+      world1 = World.new(2)
       world1.fill_grid
       world1.grid[0][0] = Cell.new(true)
       world1.grid[0][1] = Cell.new(true)
@@ -33,8 +33,8 @@ RSpec.describe 'World class' do
   end
   context 'Game state advancement' do
     before :example do
-      @world = World.new(3, random: false)
-      @world.fill_grid
+      @world = World.new(3)
+      @world.fill_grid(random: false)
       @world.grid[0][0] = Cell.new(true)
       @world.grid[0][1] = Cell.new(true)
       @world.grid[0][2] = Cell.new(true)
@@ -56,7 +56,7 @@ RSpec.describe 'World class' do
     end
 
     it 'Dead cells resurrect in the next iteration if it has exactly 3 neighbours' do
-      world2 = World.new(3, random: false)
+      world2 = World.new(3)
       world2.fill_grid
       world2.grid[0][0] = Cell.new(true)
       world2.assign_neighbours
@@ -65,10 +65,6 @@ RSpec.describe 'World class' do
     end
 
     it 'Correct number of neighbours assigned after each tick' do
-      puts
-      @world.grid.each do |row|
-        puts row.join('')
-      end
       expect(@world.grid[0][0].neighbours).to eq 1
       expect(@world.grid[0][1].neighbours).to eq 4
       expect(@world.grid[0][2].neighbours).to eq 1
