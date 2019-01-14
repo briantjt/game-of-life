@@ -25,6 +25,12 @@ class Cell
     @neighbours = count_neighbours(grid, size)
   end
 
+  def to_s
+    @alive ? '0' : '.'
+  end
+
+  private
+
   def count_neighbours(grid, size)
     count = 0
     NEIGHBOUR_UNITS.each do |coords|
@@ -36,9 +42,5 @@ class Cell
       end
     end
     count
-  end
-
-  def to_s
-    @alive ? '0' : '.'
   end
 end
