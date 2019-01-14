@@ -1,13 +1,5 @@
 require_relative 'cell'
 
-NEIGHBOUR_UNITS = [{ column: -1, row: -1 },
-                   { column: 0, row: -1 },
-                   { column: 1, row: -1 },
-                   { column: -1, row: 0 },
-                   { column: 1, row: 0 },
-                   { column: -1, row: 1 },
-                   { column: 0, row: 1 },
-                   { column: 1, row: 1 }].freeze
 # Creates a grid of cells and makes calls to cell methods
 class World
   attr_reader :size, :generation
@@ -22,7 +14,7 @@ class World
   def fill_grid(random: true)
     size.times do |row|
       size.times do |column|
-        @grid[row][column] = Cell.new(random ? rand <= 0.1 : false, row, column)
+        @grid[row][column] = Cell.new(random ? rand <= 0.2 : false, row, column)
       end
     end
   end
@@ -34,9 +26,7 @@ class World
       end
     end
     @grid.each do |row|
-      row.each do |cell|
-        cell.evolve
-      end
+      row.each(&:evolve)
     end
     @generation += 1
   end
