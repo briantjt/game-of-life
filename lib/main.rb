@@ -1,7 +1,7 @@
 require_relative 'world'
 
-def game
-  world = World.new(40)
+def game(size)
+  world = World.new(size)
   world.fill_grid
   system 'clear'
   # Saves cursor position to be at the start of the console
@@ -16,4 +16,6 @@ def game
   end
 end
 
-game
+puts 'Enter World Size (Ideally less than 50):'
+size = gets.chomp.to_i
+game(size)
