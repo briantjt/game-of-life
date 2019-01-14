@@ -14,7 +14,6 @@ class Cell
     @alive = alive
     @row = row
     @column = column
-    @neighbours = 0
   end
 
   def evolve
