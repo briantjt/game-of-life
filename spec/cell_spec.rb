@@ -18,7 +18,6 @@ RSpec.describe 'Cell' do
       end
       world[0][0] = Cell.new(true, 0, 0)
       world[0][1] = Cell.new(true, 0, 1)
-      expect(world[1][0].count_neighbours(world, 3)).to eq 2
       world[1][0].assign_neighbours(world, 3)
       world[1][1].assign_neighbours(world, 3)
       expect(world[1][0].neighbours).to eq 2
