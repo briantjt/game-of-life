@@ -22,7 +22,7 @@ class World
   def fill_grid(random: true)
     size.times do |row|
       size.times do |column|
-        grid[row][column] = Cell.new(random ? rand <= 0.1 : false, row, column)
+        @grid[row][column] = Cell.new(random ? rand <= 0.1 : false, row, column)
       end
     end
   end
