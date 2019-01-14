@@ -21,38 +21,22 @@ class World
   def fill_grid(random: true)
     size.times do |row|
       size.times do |column|
-        grid[row][column] = Cell.new(random ? rand <= 0.1 : false)
-      end
-    end
-  end
-
-  def count_neighbours(row, column)
-    count = 0
-    NEIGHBOUR_UNITS.each do |coords|
-      abs_row = row + coords[:row]
-      abs_col = column + coords[:column]
-      if (abs_row >= 0) && (abs_col >= 0) && (abs_row < @size) && (abs_col < @size)
-        cell = @grid[abs_row][abs_col]
-        count += 1 if cell.alive
-      end
-    end
-    count
-  end
-
-  def assign_neighbours
-    size.times do |row|
-      size.times do |column|
-        count = count_neighbours(row, column)
-        @grid[row][column].neighbours = count
+        grid[row][column] = Cell.new(random ? rand <= 0.1 : false, row, column)
       end
     end
   end
 
   def tick
     @grid.each do |row|
-      row.each(&:evolve)
+      row.each do |cell|
+        cell.assign_neighbours(@grid, @size)
+      end
     end
-    assign_neighbours
+    @grid.each do |row|
+      row.each do |cell|
+        cell.evolve
+      end
+    end
   end
 
   def to_s
