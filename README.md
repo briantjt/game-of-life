@@ -1,6 +1,7 @@
 # Conway's Game of Life - Ruby
 
 Ruby version of the Game of Life in the terminal
+
 ![Animation](https://media.giphy.com/media/1etWs6I0jIMHS4Db5u/giphy.gif)
 
 ## Contents
