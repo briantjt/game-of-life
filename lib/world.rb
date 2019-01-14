@@ -8,14 +8,15 @@ NEIGHBOUR_UNITS = [{ column: -1, row: -1 },
                    { column: -1, row: 1 },
                    { column: 0, row: 1 },
                    { column: 1, row: 1 }].freeze
-# World that controls behaviour of cells
+# Creates a grid of cells and makes calls to cell methods
 class World
-  attr_reader :size
+  attr_reader :size, :generation
   attr_accessor :grid
 
   def initialize(size)
     @grid = Array.new(size) { Array.new(size) }
     @size = size
+    @generation = 1
   end
 
   def fill_grid(random: true)
@@ -37,6 +38,7 @@ class World
         cell.evolve
       end
     end
+    @generation += 1
   end
 
   def to_s
