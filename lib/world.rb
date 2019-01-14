@@ -2,18 +2,17 @@ require_relative 'cell'
 
 # Creates a grid of cells and makes calls to cell methods
 class World
-  attr_reader :size, :generation
-  attr_accessor :grid
+  attr_reader :generation
 
-  def initialize(size)
-    @grid = Array.new(size) { Array.new(size) }
+  def initialize(matrix, size)
+    @grid = matrix
     @size = size
     @generation = 1
   end
 
   def fill_grid(random: true)
-    size.times do |row|
-      size.times do |column|
+    @size.times do |row|
+      @size.times do |column|
         @grid[row][column] = Cell.new(random ? rand <= 0.2 : false, row, column)
       end
     end
