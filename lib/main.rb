@@ -5,10 +5,10 @@ def game
   world.fill_grid
   system 'clear'
   # Saves cursor position to be at the start of the console
-  print "\033[s"
+  print "\e[s"
   loop do
     # Moves cursor back to the saved position i.e. the beginning
-    print "\033[u"
+    print "\e[u"
     puts "Generation: #{world.generation}"
     print world
     world.tick
