@@ -16,7 +16,7 @@ This is a simple program used to simulate Conway's Game of Life and was coded in
 
 ## Game Rules
 
-According to [Wikipedia](#https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life):
+According to [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life):
 
 - Any live cell with fewer than two live neighbors dies, as if by underpopulation.
 - Any live cell with two or three live neighbors lives on to the next generation.
