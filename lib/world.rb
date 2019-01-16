@@ -14,7 +14,7 @@ class World
     next_gen_matrix = Array.new(@size) { Array.new(@size) }
     @size.times do |row|
       @size.times do |column|
-        cell_alive = @grid[row][column].still_alive
+        cell_alive = @matrix[row][column].still_alive(@matrix, @size)
         next_gen_matrix[row][column] = Cell.new(cell_alive, row, column)
       end
     end
