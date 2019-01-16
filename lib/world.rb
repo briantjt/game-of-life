@@ -18,7 +18,7 @@ class World
         next_gen_matrix[row][column] = Cell.new(cell_alive, row, column)
       end
     end
-    World.new(next_gen_matrix, @size, @generation+1)
+    World.new(next_gen_matrix, @size, @generation + 1)
   end
 
   def to_s
