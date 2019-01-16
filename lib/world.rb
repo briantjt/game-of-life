@@ -5,26 +5,19 @@ class World
   attr_reader :generation, :grid
 
   def initialize(matrix, size)
-    @grid = matrix
+    @matrix = matrix
     @size = size
     @generation = 1
   end
 
-  def fill_grid(random: true)
-    @size.times do |row|
-      @size.times do |column|
-        @grid[row][column] = Cell.new(random ? rand <= 0.2 : false, row, column)
-      end
-    end
-  end
 
   def tick
-    @grid.each do |row|
+    @matrix.each do |row|
       row.each do |cell|
-        cell.assign_neighbours(@grid, @size)
+        cell.assign_neighbours(@matrix, @size)
       end
     end
-    @grid.each do |row|
+    @matrix.each do |row|
       row.each(&:evolve)
     end
     @generation += 1
@@ -32,7 +25,7 @@ class World
 
   def to_s
     string = ''
-    @grid.each do |row|
+    @matrix.each do |row|
       string += row.join(' ') + "\n"
     end
     string
