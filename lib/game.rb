@@ -10,8 +10,12 @@ class Game
 
   def start
     matrix = Array.new(@size) { Array.new(@size) }
-    world = World.new(matrix, size)
-    world.fill_grid
+    @size.times do |row|
+      @size.times do |column|
+        matrix[row][column] = Cell.new(rand < 0.2, row, column)
+      end
+    end
+    world = World.new(matrix, @size, 1)
     system 'clear'
     # Saves cursor position to be at the start of the console
     print "\e[s"
@@ -20,7 +24,7 @@ class Game
       print "\e[u"
       puts "Generation: #{world.generation}"
       print world
-      world.tick
+      world = world.next_gen
       sleep(1)
     end
   end
