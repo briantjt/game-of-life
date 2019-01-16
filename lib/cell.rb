@@ -18,8 +18,10 @@ class Cell
 
   def still_alive(grid, size)
     neighbours = count_neighbours(grid, size)
-    return false if (neighbours > 3) || (neighbours < 2)
-    return true if neighbours == 3
+    return true if !@alive && (neighbours == 3)
+    return true if @alive && ([2, 3].include? neighbours)
+
+    false
   end
 
   def to_s
