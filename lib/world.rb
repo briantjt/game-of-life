@@ -4,23 +4,21 @@ require_relative 'cell'
 class World
   attr_reader :generation, :grid
 
-  def initialize(matrix, size)
+  def initialize(matrix, size, generation)
     @matrix = matrix
     @size = size
-    @generation = 1
+    @generation = generation
   end
 
-
-  def tick
-    @matrix.each do |row|
-      row.each do |cell|
-        cell.assign_neighbours(@matrix, @size)
+  def next_gen
+    next_gen_matrix = Array.new(@size) { Array.new(@size) }
+    @size.times do |row|
+      @size.times do |column|
+        cell_alive = @grid[row][column].still_alive
+        next_gen_matrix[row][column] = Cell.new(cell_alive, row, column)
       end
     end
-    @matrix.each do |row|
-      row.each(&:evolve)
-    end
-    @generation += 1
+    World.new(next_gen_matrix, @size, @generation+1)
   end
 
   def to_s

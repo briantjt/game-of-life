@@ -16,13 +16,10 @@ class Cell
     @column = column
   end
 
-  def evolve
-    @alive = false if (@neighbours > 3) || (@neighbours < 2)
-    @alive = true if @neighbours == 3
-  end
-
-  def assign_neighbours(grid, size)
-    @neighbours = count_neighbours(grid, size)
+  def still_alive(grid, size)
+    neighbours = count_neighbours(grid, size)
+    return false if (neighbours > 3) || (neighbours < 2)
+    return true if neighbours == 3
   end
 
   def to_s
