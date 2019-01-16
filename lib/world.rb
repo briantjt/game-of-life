@@ -2,7 +2,7 @@ require_relative 'cell'
 
 # Creates a grid of cells and makes calls to cell methods
 class World
-  attr_reader :generation, :grid
+  attr_reader :generation, :matrix
 
   def initialize(matrix, size, generation)
     @matrix = matrix
