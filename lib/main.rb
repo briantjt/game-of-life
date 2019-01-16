@@ -1,8 +1,8 @@
 require_relative 'world'
 
 def game(size)
-  array = Array.new(size) { Array.new(size) }
-  world = World.new(array, size)
+  matrix = Array.new(size) { Array.new(size) }
+  world = World.new(matrix, size)
   world.fill_grid
   system 'clear'
   # Saves cursor position to be at the start of the console
