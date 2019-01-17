@@ -4,8 +4,9 @@ require_relative 'world'
 
 # Initializes the world and outputs the state to the console
 class Game
-  def initialize(size)
+  def initialize(size, generations)
     @size = size
+    @generations = generations
   end
 
   def start
@@ -21,6 +22,8 @@ class Game
     print "\e[s"
     loop do
       print_world
+      break if world.generation == @generations
+
       world = world.next_gen
     end
   end
