@@ -30,6 +30,6 @@ git clone https://github.com/moneysmartco/gameoflife
 ```
 `cd` into the directory and run:
 ```
-lib/main
+bin/main
 ```
 Enter the grid size that you want to view the simulation in. The size should ideally be 50 or less, depending on your screen/terminal size. Cells are then randomly generated. Sit back and watch the cells evolve with each generation!
