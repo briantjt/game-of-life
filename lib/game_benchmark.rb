@@ -2,7 +2,8 @@
 
 require_relative 'world'
 
-# Initializes the world and outputs the state to the console
+# Initializes the world and outputs the state to the console,
+# stops after specified generations are reached
 class Game
   def initialize(size, generations)
     @size = size
