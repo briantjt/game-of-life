@@ -22,7 +22,6 @@ class Game
     # Saves cursor position to be at the start of the console
     print "\e[s"
     loop do
-      print_world
       break if world.generation == @generations
 
       world = world.next_gen

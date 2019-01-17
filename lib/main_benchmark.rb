@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
+require 'benchmark'
+require_relative 'game_benchmark'
 
-require_relative '../lib/game'
-
-size = gets.chomp.to_i
-Game.new(size).start
+Benchmark.bmbm do |x|
+  x.report do
+    Game.new(50, 1000).start
+  end
+end

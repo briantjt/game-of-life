@@ -20,7 +20,7 @@ class Game
     # Saves cursor position to be at the start of the console
     print "\e[s"
     loop do
-      print_world
+      print_world world
       world = world.next_gen
       sleep(1)
     end
