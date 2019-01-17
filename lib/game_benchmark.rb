@@ -22,7 +22,6 @@ class Game
     loop do
       print_world
       world = world.next_gen
-      sleep(1)
     end
   end
 
