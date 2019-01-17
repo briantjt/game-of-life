@@ -1,9 +1,13 @@
 #!/usr/bin/env ruby
 require 'benchmark'
+include Benchmark
+
 require_relative 'game_benchmark'
 
-Benchmark.bmbm do |x|
-  x.report do
-    Game.new(50, 1000).start
-  end
+result = Benchmark.measure do
+  Game.new(50, 1000).start
 end
+
+system "clear"
+puts CAPTION
+puts result.format
