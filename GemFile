@@ -7,3 +7,4 @@ gem 'rubocop'
 gem 'solargraph'
 gem 'guard-rspec', require: false
 gem 'simplecov', require: false, group: :test
+gem 'simplecov-badge', :require => false

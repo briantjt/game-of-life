@@ -86,6 +86,7 @@ GEM
       docile (~> 1.1)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
+    simplecov-badge (2.0.2)
     simplecov-html (0.10.2)
     solargraph (0.30.2)
       backport (~> 0.2)
@@ -112,6 +113,7 @@ DEPENDENCIES
   rubocop
   ruby-debug-ide
   simplecov
+  simplecov-badge
   solargraph
 
 BUNDLED WITH
