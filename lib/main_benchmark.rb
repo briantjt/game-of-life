@@ -21,8 +21,8 @@ def game(size)
   end
 end
 
-results = Benchmark.measure { game(50) }
+results = Benchmark.measure('Mutable') { game(50) }
 
-system "clear"
-puts CAPTION
-puts results
+system 'clear'
+print 'Branch', CAPTION
+print results.label, results
