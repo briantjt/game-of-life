@@ -9,5 +9,5 @@ result = Benchmark.measure do
 end
 
 system "clear"
-puts CAPTION
-puts result.format
+print 'Branch', CAPTION
+print 'Multi-threaded', result.format
