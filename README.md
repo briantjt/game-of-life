@@ -23,6 +23,15 @@ According to [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life):
 - Any live cell with more than three live neighbors dies, as if by overpopulation.
 - Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
+## Benchmarks
+
+```
+Branch          user       system     total     real
+Mutable         3.963054   0.075831   4.041071  ( 11.562705)
+Immutable       4.346693   0.078944   4.427771  ( 10.738182)
+Multi-threaded  4.399532   0.086560   4.488290 ( 12.685574)
+```
+
 ## Cyclomatic Complexity
 
 ```
