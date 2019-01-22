@@ -1,7 +1,7 @@
-require_relative 'cell'
+require_relative '../shared/cell_shared'
 
 # Creates a grid of cells and makes calls to cell methods
-class World
+class WorldImmutable
   attr_reader :generation, :matrix
 
   def initialize(matrix, size, generation)
@@ -15,10 +15,10 @@ class World
     @size.times do |row|
       @size.times do |column|
         cell_alive = @matrix[row][column].still_alive(@matrix, @size)
-        next_gen_matrix[row][column] = Cell.new(cell_alive, row, column)
+        next_gen_matrix[row][column] = CellShared.new(cell_alive, row, column)
       end
     end
-    World.new(next_gen_matrix, @size, @generation + 1)
+    WorldImmutable.new(next_gen_matrix, @size, @generation + 1)
   end
 
   def to_s
