@@ -10,7 +10,7 @@ class GameMutable
 
   def start
     matrix = Array.new(@size) { Array.new(@size) }
-    world = World.new(matrix, @size)
+    world = WorldMutable.new(matrix, @size)
     world.fill_grid
     system 'clear'
     # Saves cursor position to be at the start of the console
