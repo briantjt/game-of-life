@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative 'world'
+require_relative '../world'
 
 # Initializes the world and outputs the state to the console,
 # stops after specified generations are reached
