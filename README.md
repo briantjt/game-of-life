@@ -35,29 +35,119 @@ Multi-threaded  4.399532   0.086560   4.488290 ( 12.685574)
 ## Cyclomatic Complexity
 
 ```
-+--------------+--------------------+------------+
-|                  lib/cell.rb                   |
-+--------------+--------------------+------------+
-| Class/Module | Method             | Complexity |
-+--------------+--------------------+------------+
-| Cell         | *                  | 9          |
-| Cell         | #initialize        | 0          |
-| Cell         | #evolve            | 3          |
-| Cell         | #assign_neighbours | 0          |
-| Cell         | #to_s              | 1          |
-| Cell         | #count_neighbours  | 5          |
-+--------------+--------------------+------------+
 +--------------+-------------+------------+
-|              lib/world.rb               |
+|             lib/commands.rb             |
 +--------------+-------------+------------+
 | Class/Module | Method      | Complexity |
 +--------------+-------------+------------+
-| World        | *           | 1          |
-| World        | #initialize | 0          |
-| World        | #fill_grid  | 1          |
-| World        | #tick       | 0          |
-| World        | #to_s       | 0          |
+| Command      | *           | 0          |
+| Command      | #initialize | 0          |
 +--------------+-------------+------------+
++--------------+----------+------------+
+|           lib/commands.rb            |
++--------------+----------+------------+
+| Class/Module | Method   | Complexity |
++--------------+----------+------------+
+| StartMutable | *        | 0          |
+| StartMutable | #execute | 0          |
++--------------+----------+------------+
++--------------+----------+------------+
+|           lib/commands.rb            |
++--------------+----------+------------+
+| Class/Module | Method   | Complexity |
++--------------+----------+------------+
+| StartMulti   | *        | 0          |
+| StartMulti   | #execute | 0          |
++--------------+----------+------------+
++----------------+----------+------------+
+|            lib/commands.rb             |
++----------------+----------+------------+
+| Class/Module   | Method   | Complexity |
++----------------+----------+------------+
+| StartImmutable | *        | 0          |
+| StartImmutable | #execute | 0          |
++----------------+----------+------------+
++--------------+--------------------+------------+
+|          lib/mutable/cell_mutable.rb           |
++--------------+--------------------+------------+
+| Class/Module | Method             | Complexity |
++--------------+--------------------+------------+
+| CellMutable  | *                  | 9          |
+| CellMutable  | #initialize        | 0          |
+| CellMutable  | #evolve            | 3          |
+| CellMutable  | #assign_neighbours | 0          |
+| CellMutable  | #to_s              | 1          |
+| CellMutable  | #count_neighbours  | 5          |
++--------------+--------------------+------------+
++--------------+-------------+------------+
+|       lib/mutable/game_mutable.rb       |
++--------------+-------------+------------+
+| Class/Module | Method      | Complexity |
++--------------+-------------+------------+
+| GameMutable  | *           | 0          |
+| GameMutable  | #initialize | 0          |
+| GameMutable  | #start      | 0          |
++--------------+-------------+------------+
++--------------+-------------+------------+
+|      lib/mutable/world_mutable.rb       |
++--------------+-------------+------------+
+| Class/Module | Method      | Complexity |
++--------------+-------------+------------+
+| WorldMutable | *           | 1          |
+| WorldMutable | #initialize | 0          |
+| WorldMutable | #fill_grid  | 1          |
+| WorldMutable | #tick       | 0          |
+| WorldMutable | #to_s       | 0          |
++--------------+-------------+------------+
++----------------+-------------+------------+
+|     lib/immutable/world_immutable.rb      |
++----------------+-------------+------------+
+| Class/Module   | Method      | Complexity |
++----------------+-------------+------------+
+| WorldImmutable | *           | 0          |
+| WorldImmutable | #initialize | 0          |
+| WorldImmutable | #next_gen   | 0          |
+| WorldImmutable | #to_s       | 0          |
++----------------+-------------+------------+
++--------------+-------------+------------+
+|        lib/multi/world_multi.rb         |
++--------------+-------------+------------+
+| Class/Module | Method      | Complexity |
++--------------+-------------+------------+
+| WorldMulti   | *           | 0          |
+| WorldMulti   | #initialize | 0          |
+| WorldMulti   | #next_gen   | 0          |
+| WorldMulti   | #to_s       | 0          |
++--------------+-------------+------------+
++--------------+--------------+------------+
+|        lib/shared/game_shared.rb         |
++--------------+--------------+------------+
+| Class/Module | Method       | Complexity |
++--------------+--------------+------------+
+| GameShared   | *            | 0          |
+| GameShared   | #initialize  | 0          |
+| GameShared   | #start       | 0          |
+| GameShared   | #print_world | 0          |
++--------------+--------------+------------+
++--------------+-------------------+------------+
+|           lib/shared/cell_shared.rb           |
++--------------+-------------------+------------+
+| Class/Module | Method            | Complexity |
++--------------+-------------------+------------+
+| CellShared   | *                 | 10         |
+| CellShared   | #initialize       | 0          |
+| CellShared   | #still_alive      | 4          |
+| CellShared   | #to_s             | 1          |
+| CellShared   | #count_neighbours | 5          |
++--------------+-------------------+------------+
++--------------+-----------+------------+
+|             lib/client.rb             |
++--------------+-----------+------------+
+| Class/Module | Method    | Complexity |
++--------------+-----------+------------+
+| Client       | *         | 0          |
+| Client       | #new_game | 0          |
++--------------+-----------+------------+
 ```
 
 ## Setup
@@ -69,4 +159,4 @@ git clone https://github.com/moneysmartco/gameoflife
 ```
 bin/main
 ```
-Enter the grid size that you want to view the simulation in. The size should ideally be 50 or less, depending on your screen/terminal size. Cells are then randomly generated. Sit back and watch the cells evolve with each generation!
+Enter the choice of implementation to run as well as the grid size that you want to view the simulation in. The size should ideally be 50 or less, depending on your screen/terminal size. Cells are then randomly generated. Sit back and watch the cells evolve with each generation!
