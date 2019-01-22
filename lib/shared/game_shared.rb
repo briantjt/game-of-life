@@ -20,7 +20,7 @@ class GameShared
     loop do
       print_world world
       world = world.next_gen
-      sleep(1)
+      sleep(0.5)
     end
   end
 
