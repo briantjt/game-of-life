@@ -4,13 +4,16 @@ require_relative '../lib/client'
 require_relative '../lib/commands'
 
 COMMANDS = [StartMutable, StartImmutable, StartMulti].freeze
+game_choice = 0
 
-puts 'Enter Game Choice:'
-puts '1: Mutable'
-puts '2: Immutable'
-puts '3: Multithreaded'
+while game_choice < 1 || game_choice > 3 do
+  puts 'Enter Game Choice:'
+  puts '1: Mutable'
+  puts '2: Immutable'
+  puts '3: Multithreaded'
+  game_choice = gets.chomp.to_i - 1
+end
 
-game_choice = gets.chomp.to_i - 1
 puts 'Enter World Size (Ideally less than 50):'
 size = gets.chomp.to_i
 Client.new.start(COMMANDS[game_choice].new(size).execute)
