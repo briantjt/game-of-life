@@ -1,8 +1,16 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/game'
+require_relative '../lib/client'
+require_relative '../lib/commands'
 
+COMMANDS = [StartMutable, StartImmutable, StartMulti].freeze
 
+puts 'Enter Game Choice:'
+puts '1: Mutable'
+puts '2: Immutable'
+puts '3: Multithreaded'
+
+game_choice = gets.chomp.to_i - 1
 puts 'Enter World Size (Ideally less than 50):'
 size = gets.chomp.to_i
-Game.new(size).start
+Client.new.start(COMMANDS[game_choice].new(size).execute)
