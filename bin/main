@@ -2,5 +2,6 @@
 
 require_relative '../lib/game'
 
+print 'Enter World Size (<50): '
 size = gets.chomp.to_i
 Game.new(size).start
