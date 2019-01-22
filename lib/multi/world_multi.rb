@@ -16,7 +16,7 @@ class WorldMulti
       (@size / 2).times do |row|
         @size.times do |column|
           cell_alive = @matrix[row][column].still_alive(@matrix, @size)
-          next_gen_matrix[row][column] = Cell.new(cell_alive, row, column)
+          next_gen_matrix[row][column] = CellShared.new(cell_alive, row, column)
         end
       end
     end
@@ -24,7 +24,7 @@ class WorldMulti
       Range.new(@size / 2, @size - 1).each do |row|
         @size.times do |column|
           cell_alive = @matrix[row][column].still_alive(@matrix, @size)
-          next_gen_matrix[row][column] = Cell.new(cell_alive, row, column)
+          next_gen_matrix[row][column] = CellShared.new(cell_alive, row, column)
         end
       end
     end
