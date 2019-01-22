@@ -1,7 +1,7 @@
-require_relative 'cell'
+require_relative 'cell_mutable'
 
 # Creates a grid of cells and makes calls to cell methods
-class World
+class WorldMutable
   attr_reader :generation, :grid
 
   def initialize(matrix, size)
@@ -13,7 +13,7 @@ class World
   def fill_grid(random: true)
     @size.times do |row|
       @size.times do |column|
-        @grid[row][column] = Cell.new(random ? rand <= 0.2 : false, row, column)
+        @grid[row][column] = CellMutable.new(random ? rand <= 0.2 : false, row, column)
       end
     end
   end

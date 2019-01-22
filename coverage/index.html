@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-01-18T11:39:15+08:00">2019-01-18T11:39:15+08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-01-22T15:25:31+08:00">2019-01-22T15:25:31+08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -51,7 +51,7 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#a496faa4d67029d418c4355ce7d86daa8bf199bf" class="src_link" title="lib/cell.rb">lib/cell.rb</a></td>
+        <td class="strong"><a href="#4e81c8586344f422ab1282b719c57de5d254e7cb" class="src_link" title="lib/mutable/cell_mutable.rb">lib/mutable/cell_mutable.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>46</td>
         <td>24</td>
@@ -61,7 +61,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#7ba21b48564920102ec938b1e185d495e70f20aa" class="src_link" title="lib/world.rb">lib/world.rb</a></td>
+        <td class="strong"><a href="#249eef7350fba730ba0db2570511003f3befb1e3" class="src_link" title="lib/mutable/world_mutable.rb">lib/mutable/world_mutable.rb</a></td>
         <td class="yellow strong">82.61 %</td>
         <td>40</td>
         <td>23</td>
@@ -71,7 +71,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#1437c68c7e544d5cffd5b46d58de70f24244320f" class="src_link" title="spec/cell_spec.rb">spec/cell_spec.rb</a></td>
+        <td class="strong"><a href="#040021b883295c8cd9d91641adca25d2183ed7bf" class="src_link" title="spec/mutable/cell_spec.rb">spec/mutable/cell_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>82</td>
         <td>56</td>
@@ -81,7 +81,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#63d96b142a67828e00bbf103a639d0b12f33598f" class="src_link" title="spec/world_spec.rb">spec/world_spec.rb</a></td>
+        <td class="strong"><a href="#8332b800f62b38e5af25402af927a54333da5c02" class="src_link" title="spec/mutable/world_spec.rb">spec/mutable/world_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>26</td>
         <td>17</td>
@@ -106,9 +106,9 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="a496faa4d67029d418c4355ce7d86daa8bf199bf">
+        <div class="source_table" id="4e81c8586344f422ab1282b719c57de5d254e7cb">
   <div class="header">
-    <h3>lib/cell.rb</h3>
+    <h3>lib/mutable/cell_mutable.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>24</b> relevant lines. 
@@ -183,7 +183,7 @@
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">class Cell</code>
+          <code class="ruby">class CellMutable</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
@@ -401,9 +401,9 @@
 </div>
 
       
-        <div class="source_table" id="7ba21b48564920102ec938b1e185d495e70f20aa">
+        <div class="source_table" id="249eef7350fba730ba0db2570511003f3befb1e3">
   <div class="header">
-    <h3>lib/world.rb</h3>
+    <h3>lib/mutable/world_mutable.rb</h3>
     <h4><span class="yellow">82.61 %</span> covered</h4>
     <div>
       <b>23</b> relevant lines. 
@@ -418,7 +418,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">require_relative &#39;cell&#39;</code>
+          <code class="ruby">require_relative &#39;cell_mutable&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -436,7 +436,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">class World</code>
+          <code class="ruby">class WorldMutable</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
@@ -508,7 +508,7 @@
         <li class="covered" data-hits="9" data-linenumber="16">
           <span class="hits">9</span>
           
-          <code class="ruby">        @grid[row][column] = Cell.new(random ? rand &lt;= 0.2 : false, row, column)</code>
+          <code class="ruby">        @grid[row][column] = CellMutable.new(random ? rand &lt;= 0.2 : false, row, column)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
@@ -660,9 +660,9 @@
 </div>
 
       
-        <div class="source_table" id="1437c68c7e544d5cffd5b46d58de70f24244320f">
+        <div class="source_table" id="040021b883295c8cd9d91641adca25d2183ed7bf">
   <div class="header">
-    <h3>spec/cell_spec.rb</h3>
+    <h3>spec/mutable/cell_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>56</b> relevant lines. 
@@ -677,7 +677,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">require &#39;cell&#39;</code>
+          <code class="ruby">require_relative &#39;../../lib/mutable/cell_mutable&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -707,7 +707,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">      cell = Cell.new(false, 0, 1)</code>
+          <code class="ruby">      cell = CellMutable.new(false, 0, 1)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="7">
@@ -767,7 +767,7 @@
         <li class="covered" data-hits="9" data-linenumber="16">
           <span class="hits">9</span>
           
-          <code class="ruby">          world[row][column] = Cell.new(false, row, column)</code>
+          <code class="ruby">          world[row][column] = CellMutable.new(false, row, column)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
@@ -785,13 +785,13 @@
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">      world[0][0] = Cell.new(true, 0, 0)</code>
+          <code class="ruby">      world[0][0] = CellMutable.new(true, 0, 0)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">      world[0][1] = Cell.new(true, 0, 1)</code>
+          <code class="ruby">      world[0][1] = CellMutable.new(true, 0, 1)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
@@ -839,13 +839,13 @@
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">      cell1 = Cell.new(true, 0, 1)</code>
+          <code class="ruby">      cell1 = CellMutable.new(true, 0, 1)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">      cell2 = Cell.new(false, 2, 3)</code>
+          <code class="ruby">      cell2 = CellMutable.new(false, 2, 3)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="30">
@@ -911,7 +911,7 @@
         <li class="covered" data-hits="27" data-linenumber="40">
           <span class="hits">27</span>
           
-          <code class="ruby">          @world[row][column] = Cell.new(false, row, column)</code>
+          <code class="ruby">          @world[row][column] = CellMutable.new(false, row, column)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
@@ -929,31 +929,31 @@
         <li class="covered" data-hits="3" data-linenumber="43">
           <span class="hits">3</span>
           
-          <code class="ruby">      @world[0][0] = Cell.new(true, 0, 0)</code>
+          <code class="ruby">      @world[0][0] = CellMutable.new(true, 0, 0)</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="44">
           <span class="hits">3</span>
           
-          <code class="ruby">      @world[0][1] = Cell.new(true, 0, 1)</code>
+          <code class="ruby">      @world[0][1] = CellMutable.new(true, 0, 1)</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="45">
           <span class="hits">3</span>
           
-          <code class="ruby">      @world[0][2] = Cell.new(true, 0, 2)</code>
+          <code class="ruby">      @world[0][2] = CellMutable.new(true, 0, 2)</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="46">
           <span class="hits">3</span>
           
-          <code class="ruby">      @world[1][0] = Cell.new(true, 1, 0)</code>
+          <code class="ruby">      @world[1][0] = CellMutable.new(true, 1, 0)</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="47">
           <span class="hits">3</span>
           
-          <code class="ruby">      @world[1][1] = Cell.new(true, 1, 1)</code>
+          <code class="ruby">      @world[1][1] = CellMutable.new(true, 1, 1)</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="48">
@@ -1109,7 +1109,7 @@
         <li class="covered" data-hits="9" data-linenumber="73">
           <span class="hits">9</span>
           
-          <code class="ruby">          world[row][column] = Cell.new(false, row, column)</code>
+          <code class="ruby">          world[row][column] = CellMutable.new(false, row, column)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="74">
@@ -1127,7 +1127,7 @@
         <li class="covered" data-hits="1" data-linenumber="76">
           <span class="hits">1</span>
           
-          <code class="ruby">      world[0][0] = Cell.new(true, 0, 0)</code>
+          <code class="ruby">      world[0][0] = CellMutable.new(true, 0, 0)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="77">
@@ -1171,9 +1171,9 @@
 </div>
 
       
-        <div class="source_table" id="63d96b142a67828e00bbf103a639d0b12f33598f">
+        <div class="source_table" id="8332b800f62b38e5af25402af927a54333da5c02">
   <div class="header">
-    <h3>spec/world_spec.rb</h3>
+    <h3>spec/mutable/world_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>17</b> relevant lines. 
@@ -1188,7 +1188,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">require &#39;world&#39;</code>
+          <code class="ruby">require_relative &#39;../../lib/mutable/world_mutable&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -1224,7 +1224,7 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">      world = World.new(array, 10)</code>
+          <code class="ruby">      world = WorldMutable.new(array, 10)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
@@ -1284,7 +1284,7 @@
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">      @world = World.new(array, 3)</code>
+          <code class="ruby">      @world = WorldMutable.new(array, 3)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">

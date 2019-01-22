@@ -8,7 +8,7 @@ NEIGHBOUR_UNITS = [{ column: -1, row: -1 },
                    { column: 1, row: 1 }].freeze
 
 # Cell that switches between alive and dead depending on the number of neighbours it has
-class Cell
+class CellMutable
   attr_reader :alive, :row, :column, :neighbours
   def initialize(alive, row, column)
     @alive = alive

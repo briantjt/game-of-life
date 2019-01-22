@@ -1,9 +1,9 @@
-require 'cell'
+require_relative '../../lib/mutable/cell_mutable'
 
 RSpec.describe 'Cell' do
   context 'Cell methods' do
     it 'Cell has an alive boolean, row and column integer attributes' do
-      cell = Cell.new(false, 0, 1)
+      cell = CellMutable.new(false, 0, 1)
       expect(cell.alive).to eq false
       expect(cell.row).to eq 0
       expect(cell.column).to eq 1
@@ -13,11 +13,11 @@ RSpec.describe 'Cell' do
       world = Array.new(3) { Array.new(3) }
       3.times do |row|
         3.times do |column|
-          world[row][column] = Cell.new(false, row, column)
+          world[row][column] = CellMutable.new(false, row, column)
         end
       end
-      world[0][0] = Cell.new(true, 0, 0)
-      world[0][1] = Cell.new(true, 0, 1)
+      world[0][0] = CellMutable.new(true, 0, 0)
+      world[0][1] = CellMutable.new(true, 0, 1)
       world[1][0].assign_neighbours(world, 3)
       world[1][1].assign_neighbours(world, 3)
       expect(world[1][0].neighbours).to eq 2
@@ -25,8 +25,8 @@ RSpec.describe 'Cell' do
     end
 
     it 'Returns . if dead and 0 if alive for to_s method' do
-      cell1 = Cell.new(true, 0, 1)
-      cell2 = Cell.new(false, 2, 3)
+      cell1 = CellMutable.new(true, 0, 1)
+      cell2 = CellMutable.new(false, 2, 3)
       expect(cell1.to_s).to eq '0'
       expect(cell2.to_s).to eq '.'
     end
@@ -37,14 +37,14 @@ RSpec.describe 'Cell' do
       @world = Array.new(3) { Array.new(3) }
       3.times do |row|
         3.times do |column|
-          @world[row][column] = Cell.new(false, row, column)
+          @world[row][column] = CellMutable.new(false, row, column)
         end
       end
-      @world[0][0] = Cell.new(true, 0, 0)
-      @world[0][1] = Cell.new(true, 0, 1)
-      @world[0][2] = Cell.new(true, 0, 2)
-      @world[1][0] = Cell.new(true, 1, 0)
-      @world[1][1] = Cell.new(true, 1, 1)
+      @world[0][0] = CellMutable.new(true, 0, 0)
+      @world[0][1] = CellMutable.new(true, 0, 1)
+      @world[0][2] = CellMutable.new(true, 0, 2)
+      @world[1][0] = CellMutable.new(true, 1, 0)
+      @world[1][1] = CellMutable.new(true, 1, 1)
       @world.each do |row|
         row.each do |cell|
           cell.assign_neighbours(@world, 3)
@@ -70,10 +70,10 @@ RSpec.describe 'Cell' do
       world = Array.new(3) { Array.new(3) }
       3.times do |row|
         3.times do |column|
-          world[row][column] = Cell.new(false, row, column)
+          world[row][column] = CellMutable.new(false, row, column)
         end
       end
-      world[0][0] = Cell.new(true, 0, 0)
+      world[0][0] = CellMutable.new(true, 0, 0)
       world[0][0].assign_neighbours(world, 3)
       world[0][0].evolve
       expect(world[0][0].alive).to eq false

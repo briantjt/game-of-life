@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/brian/conwayruby/spec/cell_spec.rb": [
+      "/Users/brian/conwayruby/spec/mutable/cell_spec.rb": [
         1,
         null,
         1,
@@ -85,7 +85,7 @@
         null,
         null
       ],
-      "/Users/brian/conwayruby/lib/cell.rb": [
+      "/Users/brian/conwayruby/lib/mutable/cell_mutable.rb": [
         1,
         null,
         null,
@@ -133,7 +133,7 @@
         null,
         null
       ],
-      "/Users/brian/conwayruby/spec/world_spec.rb": [
+      "/Users/brian/conwayruby/spec/mutable/world_spec.rb": [
         1,
         null,
         1,
@@ -161,7 +161,7 @@
         null,
         null
       ],
-      "/Users/brian/conwayruby/lib/world.rb": [
+      "/Users/brian/conwayruby/lib/mutable/world_mutable.rb": [
         1,
         null,
         null,
@@ -204,6 +204,6 @@
         null
       ]
     },
-    "timestamp": 1547782755
+    "timestamp": 1548141931
   }
 }
