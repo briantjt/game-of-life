@@ -30,7 +30,7 @@ class WorldMulti
     end
     thread1.join
     thread2.join
-    World.new(next_gen_matrix, @size, @generation + 1)
+    WorldMulti.new(next_gen_matrix, @size, @generation + 1)
   end
 
   def to_s
