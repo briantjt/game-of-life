@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative 'world'
+require_relative 'world_mutable'
 
 # Starts the world and loops it
 class GameMutable
