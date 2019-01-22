@@ -20,7 +20,7 @@ class World
         end
       end
     end
-    thread2 = Thread.new do 
+    thread2 = Thread.new do
       Range.new(@size / 2, @size - 1).each do |row|
         @size.times do |column|
           cell_alive = @matrix[row][column].still_alive(@matrix, @size)
