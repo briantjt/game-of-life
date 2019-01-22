@@ -3,7 +3,7 @@
 require_relative 'world'
 
 # Starts the world and loops it
-class Game
+class GameMutable
   def initialize(size)
     @size = size
   end
