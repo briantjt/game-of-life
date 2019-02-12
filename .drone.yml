@@ -1,0 +1,12 @@
+publish_image_to_ECR: &publish_image_to_ECR
+  image: plugins/ecr
+  repo: 814507470717.dkr.ecr.ap-southeast-1.amazonaws.com/gameoflife
+  registry: 814507470717.dkr.ecr.ap-southeast-1.amazonaws.com
+  tags:
+    - latest
+    - ${DRONE_BRANCH/\//-}-${DRONE_COMMIT:0:10}
+
+deploy_to_ecs: &deploy_to_ecs
+  image: moneysmartco/drone-ecs-deploy:0.0.3
+  aws_region: ap-southeast-1
+  image_name: 814507470717.dkr.ecr.ap-southeast-1.amazonaws.com/gameoflife:${DRONE_BRANCH/\//-}-${DRONE_COMMIT:0:10}
